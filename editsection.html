@@ -1,0 +1,158 @@
+  <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <script
+     src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+     crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-storage.js"></script>
+     <link rel="stylesheet" href="./css/editsection.css">
+
+    <title>
+    </title>
+  </head>
+  <body>
+    <div class="hey">
+      <div class="row main-bar">
+          <h4 class="col lg-11" style="padding-left: 45px;">Edit Details</h4>
+          <h4 class="col lg-1 log-out " onclick="signOut()">Log out</h4  >
+      </div>
+
+      <div class="tab-pane row">
+        <div class = "option-tab mark-tab col-6 bds tab-active">Basic Details</div>
+        <!-- <div class = "option-tab col-3 gal">Gallery</div> -->
+        <div class = "option-tab col-6 fac">Faculty</div>
+        <!-- <div class = "option-tab col-3 mis">Miscellaneous</div> -->
+      </div>
+      <div id='loader-div'></div>
+      <div class="row info-input scroll" id = 'basic-details'>
+
+          <div class="col-md-6">
+
+            <div class="form-group">
+                <p>Coaching Name*</p>
+                <input type="text" class="form-control" id="coaching-name" />
+            </div>
+            <div class="form-group">
+                <p>Email*</p>
+                <input type="text" class="form-control" id="email" />
+            </div>
+            <div class="form-group">
+                <p>Name of Branch Manager*</p>
+                <input type="text" class="form-control" id="name-of-branch-manager" />
+            </div>
+            <div class="form-group">
+                <p>Contact Number*</p>
+                <input type="text" class="form-control" id="contact-no" />
+            </div>
+
+            <p>Your Website Link:</p>
+            <input type="text" class="form-control" id="website-link"  value=""/>
+          <p>Overview/Decsription:</p>
+          <textarea name="overview" class='form-control' value='' rows="8" cols="80" id="description"></textarea>
+        </div>
+          <div class="col-md-6">
+            <div class="form-group">
+                <p>Address*</p>
+                <input type="text" class="form-control" placeholder="Address Line 1*" id="address-line-1" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Address Line 2*" id="address-line-2" />
+            </div>
+            <div class="row">
+
+              <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="City*" id="city" />
+                  <input type="number" class="form-control" placeholder="Pincode*" id="pincode" style="margin-top : 15px"/>
+              </div>
+
+              <div class="form-group col-md-6">
+                  <select class="form-control custom-select mb-3" id = 'states' name="">
+                    <option value="">Select state</option>
+                  </select>
+              </div>
+
+            </div>
+            <div class="form-group">
+            <p>Specifications*</p>
+            <textarea name="specification" class="form-control" rows="8" cols="80" id="specifications"></textarea>
+          </div>
+          <input type="submit" class="btnRegister " value="Save"  onclick="uploadBasicDetails()"/>
+          </div>
+      </div>
+      <!-- <div class="row info-input" id = 'gallery'>
+
+      <div class="container">
+    <fieldset class="form-group">
+        <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
+        <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple>
+    </fieldset>
+    <div class="preview-images-zone">
+        <div class="preview-image preview-show-1">
+            <div class="image-cancel" data-no="1">x</div>
+            <div class="image-zone"><img id="pro-img-1" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw=="></div>
+        </div>
+        <div class="preview-image preview-show-2">
+            <div class="image-cancel" data-no="2">x</div>
+            <div class="image-zone"><img id="pro-img-2" src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/flip.jpg"></div>
+        </div>
+        <div class="preview-image preview-show-3">
+            <div class="image-cancel" data-no="3">x</div>
+            <div class="image-zone"><img id="pro-img-3" src="http://i.stack.imgur.com/WCveg.jpg"></div>
+        </div>
+    </div>
+    <input type="submit" class="btnRegister" id = "gallery-submit"  value="Save and Exit"/>
+    </div>
+
+    </div> -->
+
+
+    <div class="info-input" id = 'faculty'>
+      <div class="faculty-list" id="faculty-list">
+        <!-- <div class="faculty-card faculty-1">
+          <div class="card mb-3  bg-secondary fc-card">
+            <div class="faculty-delete" id="faculty-delete-1">
+              <span aria-hidden="true" class="close">&times;</span>
+            </div>
+              <div class="row no-gutters bg-secondary">
+                <div class="col-md-4">
+                  <label class="label">Choose Image<input type="file"  id="faculty-choose-button-1" class="select-file" size="60"/></label>
+                  </br>
+                  <img src="#" class="preview-img" id="faculty-img-1" alt="your image" >
+                </div>
+                <div class="col-md-12">
+                  <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control faculty-name" id="faculty-name-1" placeholder="Faculty Name*" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control faculty-experience" id="faculty-experience-1" placeholder="Years of Experience*" value="" />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows = '3' cols = "80" class="form-control faculty-specifications" id="faculty-specifications-1" placeholder="Specifications*" value=""></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div> -->
+        <div id = "add-faculty-card"  class= 'btn' style="cursor:pointer; display: inline;  ">
+          <h3 style =float:left;' onclick="addNewFacultyCard()">+ <span style =font-size:22px;'>Add New Faculty</span></h3>
+          <button class="btn btn-danger" style = ' float:right;' onclick="uploadFacultyDetails()"> Save </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="./js/editsectionDatabase.js"></script>
+    <script src="./js/editsection.js" charset="utf-8"></script>
+    </div>
+  </body>
+</html>

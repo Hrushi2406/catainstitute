@@ -1,0 +1,84 @@
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+    <script src="./js/firebaseAuth.js"></script>    
+    
+  <link rel="stylesheet" href="./css/registration.css">
+  </head>
+  <body>
+        
+    <div class="register container" >
+    
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>You are 30 seconds away from earning your own money!</p>
+                        <input type="submit" name="" id = "actionBtnOut" value="Login"/><br/>
+                    </div>
+                    <div class="col-md-9 register-right" id = "user-input-panel">
+                        <div id='loader-div'></div>
+                            
+                        <div class="tab-content" id="myTabContent">
+                              
+                            <div class="tab-pane fade show active" id="register-panel" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Apply as a Institute</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="coaching-name" placeholder="Coaching Name *" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="register-password" placeholder="Password *" required />
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 5px;">
+                                            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password *" required />
+                                        </div>
+                                        <p id="alert" style="color: red; font-size: 12px;"></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="register-email" placeholder="Your Email *" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" id="name-of-branch-manager"  class="form-control" placeholder="Branch Manager*" required />
+                                        </div>
+                                        <div class="form-group">
+                                                <input type="text" minlength="10" maxlength="10" id="contact-no" class="form-control" placeholder="Contact No *" required />
+                                        </div>
+                                       
+                                        <input type="submit" class="btnRegister" onclick="signUp()" value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="login-panel" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Login as a Institute</h3>
+                                <div class="row register-form">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="email" id = 'login-email' class="form-control" placeholder="Email *" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password"  id = 'login-password' class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <p id="alertLogin" style="color: red; font-size: 12px;"></p>
+                                        <input type="submit" class="btnRegister2" onclick="logIn()" value="Login"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+      <script src="./js//regisjs.js" charset="utf-8"></script>
+  </body>
+</html>
